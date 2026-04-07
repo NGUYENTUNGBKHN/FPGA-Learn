@@ -1,0 +1,30 @@
+# --- General / OS --- 
+
+
+
+# --- Vivado Specific ---
+# Exclude the entire project folder if you use the "Project Mode" GUI 
+# But usually, it's better to ignore specific internal folders:
+*.backup.rpt
+*.backup.vhd
+*.backup.v
+.srcs/sources_1/ip/*/     # If using OOC IP, ignore the generated files
+*.gen/
+*.runs/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.cache/
+
+# -- Simulation Tools (ModelSim/ Questa / GHDL)
+work/
+*.wlf
+*.mpf
+*.pnps
+*.vstf
+transcript
+vsim.wlf
+*.ghw
+*.cf
+
+
