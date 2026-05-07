@@ -1,0 +1,7 @@
+E:/intelFPGA/FPGA-Learn/VHDL/vhdlwhiz/0.hello_world/hello_world.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none E:/intelFPGA/FPGA-Learn/VHDL/vhdlwhiz/0.hello_world/hello_world.vhd
+Questa Intel Starter FPGA Edition-64 vcom 2024.3 Compiler 2024.09 Sep 10 2024
+-- Loading package STANDARD
+-- Compiling entity hello_world
+-- Compiling architecture sim of hello_world
+
+} {} {}}
