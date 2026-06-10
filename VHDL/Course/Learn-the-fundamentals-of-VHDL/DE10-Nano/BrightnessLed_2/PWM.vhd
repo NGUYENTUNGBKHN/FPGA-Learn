@@ -36,10 +36,10 @@ begin
     max_duty_cnt <= to_integer(unsigned(Duty_Cycle));
     PWM_OUT <= pwm_value;
 
-    pwm_proc : process(CLK) is
+    pwm_proc : process(CLK)
     begin
         if (rising_edge(CLK)) then
-            if (Enable = '1') then
+            if (Enable = '0') then
                 if (freq_cnt < MAX_FREQ) then
                     freq_cnt <= freq_cnt + 1;
                     if (duty_cnt < max_duty_cnt) then

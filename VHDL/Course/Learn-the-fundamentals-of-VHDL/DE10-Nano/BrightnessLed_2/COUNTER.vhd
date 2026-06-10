@@ -9,13 +9,13 @@ use ieee.math_real.all;
 -- Entity
 entity COUNTER is
     generic (
-        MAX_VAL : integer := 2**30;
-        SYNC_rst : boolean := true
+        MAX_VAL     : integer := 2**30;
+        SYNC_rst    : boolean := true
     );
     port (
-        CLK : in std_logic;
-        Reset : in std_logic;
-        Max_cnt : out std_logic
+        Max_cnt : out std_logic;
+        CLK     : in std_logic;
+        Reset   : in std_logic
     );
 end entity;
 
@@ -24,16 +24,17 @@ architecture behavior of COUNTER is
 -- Constant
     constant MAX_BITS : integer := integer(ceil(log2(real(MAX_VAL))));
 -- Signal
-    signal count_reg : unsigned(MAX_BITS - 1 downto 0) := (others => '0');
     signal max_cnt_reg : std_logic := '0';
+    signal count_reg : unsigned(MAX_BITS - 1 downto 0) := (others => '0');
+    
 begin
     Max_cnt <= max_cnt_reg;
-
     i_Sync : if (SYNC_rst = true) generate
+    begin
         count_proc : process(CLK) 
         begin
             if (rising_edge(CLK)) then
-                if (Reset = '1' or count_reg = MAX_VAL) then
+                if ((Reset = '0') or (count_reg = MAX_VAL)) then
                     count_reg <= (others => '0');
                 else
                     count_reg <= count_reg + 1;
@@ -43,9 +44,10 @@ begin
     end generate;
 
     i_ASync : if (SYNC_rst = false) generate
-        count_proc : process(CLK, Reset) 
+    begin
+        count_proc : process(CLK, Reset)
         begin
-            if (Reset = '1') then
+            if (Reset = '0') then
                 count_reg <= (others => '0');
             elsif (rising_edge(CLK)) then
                 if (count_reg = MAX_VAL) then
@@ -57,9 +59,9 @@ begin
         end process;
     end generate;
 
-    out_proc : process(count_reg) is
+    out_proc : process(count_reg)
     begin
-        if (count_reg = MAX_BITS) then
+        if (count_reg = MAX_VAL) then
             max_cnt_reg <= '1';
         else
             max_cnt_reg <= '0';
