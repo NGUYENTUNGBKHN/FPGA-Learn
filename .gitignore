@@ -116,6 +116,35 @@ solution*/
 # SDK / Vitis workspace
 *.sdk/
 *.vitis/
+*.vitis_hls/
+*.ide/
+*.system/
+*.platform/
+*.sprj/
+*.hdf
+*.xpfm
+*.bif
+*.elf
+*.map
+*.mmi
+*.o
+*.d
+*.su
+*.a
+*.so
+*.exe
+*.out
+Debug/
+Release/
+_x/
+.Xil_Vitis/
+vitis*.log
+vitis*.jou
+vitis*.str
+xrc.log
+xo_usage.log
+v++*.log
+v++*.jou
 RemoteSystemsTempFiles/
 .metadata/
  
@@ -182,3 +211,8 @@ modelsim.ini.bak
 *.tmp
 .DS_Store
 Thumbs.db
+
+# Code/UART
+_ide/
+.rigel_lopper/
+

@@ -1,0 +1,61 @@
+{
+  "name": "platform_uart",
+  "type": "PLATFORM",
+  "configuration": {
+    "description": "",
+    "xsa": "E:\\intelFPGA\\FPGA-Learn\\VHDL\\Course\\Learn-the-fundamentals-of-VHDL\\Zybo-z7\\UART\\uart_module_wrapper.xsa",
+    "xsaPathInPlatform": "platform_uart\\hw\\uart_module_wrapper.xsa",
+    "emulationXsa": "",
+    "emulationXsaPathInPlatform": "",
+    "isCustomFSBL": false,
+    "fsblPath": "",
+    "pmufwElf": "",
+    "flow": "EMBEDDED",
+    "processorsMap": {
+      "microblaze_mcs_0_microblaze_I": "microblaze"
+    },
+    "supportedOS": [
+      "standalone",
+      "freertos",
+      "linux"
+    ],
+    "supportedFamily": "zynq",
+    "stdGenHookList": [
+      {
+        "key": "VITIS_SDT_REPO",
+        "value": ""
+      },
+      {
+        "key": "VITIS_SDT_BOARD_DTS",
+        "value": ""
+      },
+      {
+        "key": "VITIS_SDT_INCLUDE_DTS",
+        "value": ""
+      },
+      {
+        "key": "-dt_overlay",
+        "value": "0"
+      }
+    ],
+    "componentType": "PLATFORM",
+    "domains": [
+      {
+        "name": "standalone_microblaze_mcs_0_microblaze_I",
+        "displayName": "standalone_microblaze_mcs_0_microblaze_I",
+        "processor": "microblaze_mcs_0_microblaze_I",
+        "cpuType": "microblaze",
+        "cpuInstance": "microblaze_mcs_0_microblaze_I",
+        "os": "standalone",
+        "appTemplate": "empty_application",
+        "isBootDomain": false,
+        "qemuData": "resources\\standalone_microblaze_mcs_0_microblaze_I\\qemu",
+        "qemuArgsFile": "resources\\standalone_microblaze_mcs_0_microblaze_I\\qemu\\qemu_args.txt",
+        "pmcQemuArgsFile": "",
+        "isBSPGenReq": false
+      }
+    ],
+    "emptyToolchainConfiguration": []
+  },
+  "useSysrootToolchain": false
+}
