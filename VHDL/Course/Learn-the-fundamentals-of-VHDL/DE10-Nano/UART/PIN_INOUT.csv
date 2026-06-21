@@ -1,0 +1,3 @@
+TO,Direction,Location,I/O Bank,VREF Group,I/O Standard,Reserverd,Current Status
+clk,,PIN_V11,3B,B3B_N0,3.3-V LVTTL,,
+reset,,PIN_Y24,5B,B5B_N7,3.3-V LVTTL,,

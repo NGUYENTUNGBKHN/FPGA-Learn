@@ -1,0 +1,19 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst UART_DEMO.jtag_uart -pg 1 -lvl 4 -y 70
+preplace inst UART_DEMO.pll_0 -pg 1 -lvl 2 -y 130
+preplace inst UART_DEMO.clk_50 -pg 1 -lvl 1 -y 150
+preplace inst UART_DEMO.nios2_qsys_0 -pg 1 -lvl 3 -y 30
+preplace inst UART_DEMO -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst UART_DEMO.onchip_memory2 -pg 1 -lvl 4 -y 170
+preplace netloc EXPORT<net_container>UART_DEMO</net_container>(SLAVE)UART_DEMO.pll_0_locked,(SLAVE)pll_0.locked) 1 0 2 NJ 140 NJ
+preplace netloc POINT_TO_POINT<net_container>UART_DEMO</net_container>(MASTER)nios2_qsys_0.jtag_debug_module_reset,(SLAVE)nios2_qsys_0.reset_n) 1 2 2 500 160 750
+preplace netloc EXPORT<net_container>UART_DEMO</net_container>(SLAVE)UART_DEMO.reset,(SLAVE)clk_50.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>UART_DEMO</net_container>(SLAVE)UART_DEMO.clk,(SLAVE)clk_50.clk_in) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>UART_DEMO</net_container>(MASTER)nios2_qsys_0.d_irq,(SLAVE)jtag_uart.irq) 1 3 1 770
+preplace netloc FAN_OUT<net_container>UART_DEMO</net_container>(SLAVE)jtag_uart.clk,(MASTER)pll_0.outclk0,(SLAVE)nios2_qsys_0.clk,(SLAVE)onchip_memory2.clk1) 1 2 2 460 180 810
+preplace netloc POINT_TO_POINT<net_container>UART_DEMO</net_container>(MASTER)clk_50.clk,(SLAVE)pll_0.refclk) 1 1 1 N
+preplace netloc FAN_OUT<net_container>UART_DEMO</net_container>(SLAVE)jtag_uart.reset,(SLAVE)pll_0.reset,(MASTER)clk_50.clk_reset,(SLAVE)onchip_memory2.reset1) 1 1 3 300 220 NJ 220 830
+preplace netloc INTERCONNECT<net_container>UART_DEMO</net_container>(SLAVE)jtag_uart.avalon_jtag_slave,(MASTER)nios2_qsys_0.instruction_master,(SLAVE)nios2_qsys_0.jtag_debug_module,(SLAVE)onchip_memory2.s1,(MASTER)nios2_qsys_0.data_master) 1 2 2 480 200 790
+levelinfo -pg 1 0 90 1020
+levelinfo -hier UART_DEMO 100 130 330 530 870 1010
