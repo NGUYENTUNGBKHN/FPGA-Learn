@@ -1,0 +1,17 @@
+{
+  "name": "peripheral_tests",
+  "type": "HOST",
+  "platform": "platform_uart",
+  "domain": "standalone_microblaze_mcs_0_microblaze_I",
+  "cpuInstance": "microblaze_mcs_0_microblaze_I",
+  "cpuType": "microblaze",
+  "os": "standalone",
+  "configuration": {
+    "componentType": "HOST",
+    "hostToolchainConfigurations": []
+  },
+  "domainRealName": "standalone_microblaze_mcs_0_microblaze_I",
+  "useSysrootToolchain": false,
+  "applicationFlow": "EMBEDDED",
+  "template": "peripheral_tests"
+}
