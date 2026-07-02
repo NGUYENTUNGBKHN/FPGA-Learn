@@ -4,7 +4,7 @@
  * Machine generated for CPU 'intel_niosv_g' in SOPC Builder design 'UART_IO_SYS'
  * SOPC Builder design path: ../../UART_IO_SYS.sopcinfo
  *
- * Generated: Tue Jun 30 21:17:03 JST 2026
+ * Generated: Wed Jul 01 21:56:39 JST 2026
  */
 
 /*

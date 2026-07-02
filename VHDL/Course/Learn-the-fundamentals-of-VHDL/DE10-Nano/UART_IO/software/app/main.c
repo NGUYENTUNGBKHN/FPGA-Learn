@@ -51,11 +51,6 @@ int main()
 			// Read UART Data
 			tmp_rx_buf = getchar();
 			//while ((tmp_rx_buf = getchar()) != EOF);
-			if (tmp_rx_buf == EOF)
-			    {
-			        printf("EOF\r\n");
-			        continue;
-			    }
 
 			rx_buf[byte_count] = tmp_rx_buf;
 
@@ -111,3 +106,5 @@ int main()
 	printf("---Exiting main---\n\r");
 	return 0;
 }
+
+

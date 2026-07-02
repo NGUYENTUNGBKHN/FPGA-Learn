@@ -1,9 +1,11 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst UART_IO_SYS.intel_niosv_g -pg 1 -lvl 3 -y 70
+preplace inst UART_IO_SYS.intel_niosv_g -pg 1 -lvl 3 -y 50
+preplace inst UART_IO_SYS.pio_switch -pg 1 -lvl 4 -y 340
 preplace inst UART_IO_SYS.intel_niosv_g.hart -pg 1
 preplace inst UART_IO_SYS.pll_0 -pg 1 -lvl 2 -y 50
 preplace inst UART_IO_SYS.jtag_uart -pg 1 -lvl 4 -y 110
+preplace inst UART_IO_SYS.pio_led -pg 1 -lvl 4 -y 240
 preplace inst UART_IO_SYS.intel_niosv_g.dbg_mod -pg 1
 preplace inst UART_IO_SYS.intel_niosv_g.timer_module -pg 1
 preplace inst UART_IO_SYS.onchip_memory2 -pg 1 -lvl 4 -y 30
@@ -11,15 +13,19 @@ preplace inst UART_IO_SYS.clk_50 -pg 1 -lvl 1 -y 70
 preplace inst UART_IO_SYS.intel_niosv_g.debug_reset_bridge -pg 1
 preplace inst UART_IO_SYS.intel_niosv_g.clock_bridge -pg 1
 preplace inst UART_IO_SYS -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst UART_IO_SYS.pio_btn -pg 1 -lvl 4 -y 440
 preplace inst UART_IO_SYS.intel_niosv_g.reset_bridge -pg 1
-preplace netloc POINT_TO_POINT<net_container>UART_IO_SYS</net_container>(SLAVE)pll_0.refclk,(MASTER)clk_50.clk) 1 1 1 N
-preplace netloc FAN_OUT<net_container>UART_IO_SYS</net_container>(MASTER)intel_niosv_g.dbg_reset_out,(SLAVE)intel_niosv_g.ndm_reset_in,(SLAVE)intel_niosv_g.reset) 1 2 2 480 210 790
-preplace netloc FAN_OUT<net_container>UART_IO_SYS</net_container>(MASTER)clk_50.clk_reset,(SLAVE)jtag_uart.reset,(SLAVE)pll_0.reset,(SLAVE)onchip_memory2.reset1) 1 1 3 300 250 NJ 250 870
-preplace netloc POINT_TO_POINT<net_container>UART_IO_SYS</net_container>(SLAVE)jtag_uart.irq,(MASTER)intel_niosv_g.platform_irq_rx) 1 3 1 810
-preplace netloc FAN_OUT<net_container>UART_IO_SYS</net_container>(SLAVE)jtag_uart.clk,(MASTER)pll_0.outclk0,(SLAVE)intel_niosv_g.clk,(SLAVE)onchip_memory2.clk1) 1 2 2 460 30 850
-preplace netloc EXPORT<net_container>UART_IO_SYS</net_container>(SLAVE)clk_50.clk_in_reset,(SLAVE)UART_IO_SYS.reset) 1 0 1 NJ
-preplace netloc INTERCONNECT<net_container>UART_IO_SYS</net_container>(SLAVE)onchip_memory2.s1,(SLAVE)intel_niosv_g.timer_sw_agent,(SLAVE)jtag_uart.avalon_jtag_slave,(MASTER)intel_niosv_g.data_manager,(MASTER)intel_niosv_g.instruction_manager,(SLAVE)intel_niosv_g.dm_agent) 1 2 2 460 230 830
+preplace netloc POINT_TO_POINT<net_container>UART_IO_SYS</net_container>(MASTER)intel_niosv_g.platform_irq_rx,(SLAVE)jtag_uart.irq) 1 3 1 940
+preplace netloc POINT_TO_POINT<net_container>UART_IO_SYS</net_container>(MASTER)clk_50.clk,(SLAVE)pll_0.refclk) 1 1 1 N
+preplace netloc EXPORT<net_container>UART_IO_SYS</net_container>(SLAVE)UART_IO_SYS.pio_led_external_connection,(SLAVE)pio_led.external_connection) 1 0 4 NJ 270 NJ 270 NJ 270 NJ
+preplace netloc EXPORT<net_container>UART_IO_SYS</net_container>(SLAVE)UART_IO_SYS.pio_btn_external_connection,(SLAVE)pio_btn.external_connection) 1 0 4 NJ 470 NJ 470 NJ 470 NJ
+preplace netloc EXPORT<net_container>UART_IO_SYS</net_container>(SLAVE)UART_IO_SYS.reset,(SLAVE)clk_50.clk_in_reset) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>UART_IO_SYS</net_container>(SLAVE)pio_btn.reset,(SLAVE)onchip_memory2.reset1,(SLAVE)pll_0.reset,(SLAVE)pio_led.reset,(SLAVE)pio_switch.reset,(MASTER)clk_50.clk_reset,(SLAVE)jtag_uart.reset) 1 1 3 410 230 NJ 230 1000
+preplace netloc FAN_OUT<net_container>UART_IO_SYS</net_container>(MASTER)intel_niosv_g.dbg_reset_out,(SLAVE)intel_niosv_g.ndm_reset_in,(SLAVE)intel_niosv_g.reset) 1 2 2 610 250 920
+preplace netloc EXPORT<net_container>UART_IO_SYS</net_container>(SLAVE)pio_switch.external_connection,(SLAVE)UART_IO_SYS.pio_switch_external_connection) 1 0 4 NJ 370 NJ 370 NJ 370 NJ
+preplace netloc INTERCONNECT<net_container>UART_IO_SYS</net_container>(SLAVE)onchip_memory2.s1,(MASTER)intel_niosv_g.instruction_manager,(MASTER)intel_niosv_g.data_manager,(SLAVE)pio_led.s1,(SLAVE)pio_btn.s1,(SLAVE)pio_switch.s1,(SLAVE)intel_niosv_g.timer_sw_agent,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)intel_niosv_g.dm_agent) 1 2 2 590 190 960
 preplace netloc EXPORT<net_container>UART_IO_SYS</net_container>(SLAVE)clk_50.clk_in,(SLAVE)UART_IO_SYS.clk) 1 0 1 NJ
 preplace netloc EXPORT<net_container>UART_IO_SYS</net_container>(SLAVE)UART_IO_SYS.pll_0_locked,(SLAVE)pll_0.locked) 1 0 2 NJ 60 NJ
-levelinfo -pg 1 0 90 1060
-levelinfo -hier UART_IO_SYS 100 130 330 590 910 1050
+preplace netloc FAN_OUT<net_container>UART_IO_SYS</net_container>(SLAVE)pio_led.clk,(SLAVE)onchip_memory2.clk1,(MASTER)pll_0.outclk0,(SLAVE)jtag_uart.clk,(SLAVE)pio_btn.clk,(SLAVE)intel_niosv_g.clk,(SLAVE)pio_switch.clk) 1 2 2 570 210 980
+levelinfo -pg 1 0 200 1200
+levelinfo -hier UART_IO_SYS 210 240 440 720 1040 1190

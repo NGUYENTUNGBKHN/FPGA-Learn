@@ -2,12 +2,12 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal2</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>30-Jun-2026 21:17:01</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1782821821951</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>01-Jul-2026 21:56:39</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1782910599347</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>E:\intelFPGA\FPGA-Learn\VHDL\Course\Learn-the-fundamentals-of-VHDL\DE10-Nano\UART_IO\software\bsp</BspGeneratedLocation>
         <BspSettingsFile>E:\intelFPGA\FPGA-Learn\VHDL\Course\Learn-the-fundamentals-of-VHDL\DE10-Nano\UART_IO\software\bsp\settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\UART_IO_SYS.sopcinfo</SopcDesignFile>
-        <SystemFileHash>8198f45ba5bb50c0464e962c3ec669b1a7593af4e33cc7872364e38162da9</SystemFileHash>
+        <SystemFileHash>10d3d8d2d7e9bee02929ca4e62533a0f966689e6b3bd18669c1260abc1616e</SystemFileHash>
         <JdiFile>default</JdiFile>
         <Cpu>intel_niosv_g</Cpu>
         <SchemaVersion>1.9</SchemaVersion>
